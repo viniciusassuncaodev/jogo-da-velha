@@ -19,4 +19,32 @@ vitorias_x = 0
 vitorias_o = 0
 empates = 0
 total_partidas = 0
-sair = False         
+sair = False
+
+# menu principal: repete até o jogador escolher Sair
+while sair == False:
+    print("")
+    print("========== JOGO DA VELHA ==========")
+    print("1 - Partida avulsa")
+    print("2 - Campeonato melhor de 3")
+    print("3 - Campeonato melhor de 5")
+    print("4 - Ver regras")
+    print("5 - Ver placar")
+    print("6 - Sair")
+
+    # validação: compara o texto digitado com "1" até "6",
+    # assim letra, vazio ou número fora da lista não dá erro
+    opcao = 0
+    valida = False
+    while valida == False:
+        entrada = input("Escolha uma opção (1 a 6): ")
+        for n in range(1, 7):
+            if entrada == str(n):
+                valida = True
+                opcao = n
+        if valida == False:
+            print("Entrada inválida! Digite um número de 1 a 6.")
+
+    if opcao == 6:
+        print("Obrigado por jogar!")
+        sair = True
