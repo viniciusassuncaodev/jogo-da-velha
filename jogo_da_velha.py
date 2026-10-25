@@ -44,7 +44,19 @@ while sair == False:
                 opcao = n
         if valida == False:
             print("Entrada inválida! Digite um número de 1 a 6.")
-
     if opcao == 6:
         print("Obrigado por jogar!")
         sair = True
+    elif opcao == 1:
+        # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
+        print("")
+        print("     1   2   3")
+        for i in range(3):
+            print(str(i + 1) + "   ", end="")
+            for j in range(3):
+                print(" " + tabuleiro[i][j] + " ", end="")
+                if j < 2:
+                    print("|", end="")
+            print("")
+            if i < 2:
+                print("    ---+---+---")       
