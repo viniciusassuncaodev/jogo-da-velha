@@ -60,3 +60,34 @@ while sair == False:
             print("")
             if i < 2:
                 print("    ---+---+---")       
+        # lê a jogada: repete até a linha, a coluna e a casa estarem corretas
+        jogada_ok = False
+        while jogada_ok == False:
+            # linha: o jogador digita 1 a 3, mas a matriz vai de 0 a 2 (n - 1)
+            linha = 0
+            valida = False
+            while valida == False:
+                entrada = input("Linha (1 a 3): ")
+                for n in range(1, 4):
+                    if entrada == str(n):
+                        valida = True
+                        linha = n - 1
+                if valida == False:
+                    print("Entrada inválida! Digite um número de 1 a 3.")
+            # coluna: mesma ideia da linha
+            coluna = 0
+            valida = False
+            while valida == False:
+                entrada = input("Coluna (1 a 3): ")
+                for n in range(1, 4):
+                    if entrada == str(n):
+                        valida = True
+                        coluna = n - 1
+                if valida == False:
+                    print("Entrada inválida! Digite um número de 1 a 3.")
+            # só aceita se a casa estiver livre
+            if tabuleiro[linha][coluna] != " ":
+                print("Casa já ocupada! Escolha outra casa.")
+            else:
+                jogada_ok = True
+        print("Jogada válida: linha " + str(linha + 1) + ", coluna " + str(coluna + 1))
