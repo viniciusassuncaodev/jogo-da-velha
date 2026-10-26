@@ -104,3 +104,11 @@ while sair == False:
             if rodadas == 9:
                 fim = True
             vez_x = not vez_x
+    elif opcao == 4:
+        print("")
+        print("REGRAS:")
+        print("- O tabuleiro tem 3 linhas e 3 colunas.")
+        print("- Os jogadores se alternam marcando X ou O em uma casa vazia.")
+        print("- Para jogar, informe o número da linha e da coluna (1 a 3).")
+        print("- Vence quem completar uma linha, coluna ou diagonal.")
+        print("- Se o tabuleiro encher sem vencedor, é empate.")
