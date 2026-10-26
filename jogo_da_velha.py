@@ -48,46 +48,59 @@ while sair == False:
         print("Obrigado por jogar!")
         sair = True
     elif opcao == 1:
-        # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
-        print("")
-        print("     1   2   3")
-        for i in range(3):
-            print(str(i + 1) + "   ", end="")
-            for j in range(3):
-                print(" " + tabuleiro[i][j] + " ", end="")
-                if j < 2:
-                    print("|", end="")
+        vez_x = True        # booleano: True = vez do X, False = vez do O
+        fim = False         # vira True quando a partida acabar
+        rodadas = 0         # provisório: conta jogadas até o empate ficar pronto
+        while fim == False:
+            # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
             print("")
-            if i < 2:
-                print("    ---+---+---")       
-        # lê a jogada: repete até a linha, a coluna e a casa estarem corretas
-        jogada_ok = False
-        while jogada_ok == False:
-            # linha: o jogador digita 1 a 3, mas a matriz vai de 0 a 2 (n - 1)
-            linha = 0
-            valida = False
-            while valida == False:
-                entrada = input("Linha (1 a 3): ")
-                for n in range(1, 4):
-                    if entrada == str(n):
-                        valida = True
-                        linha = n - 1
-                if valida == False:
-                    print("Entrada inválida! Digite um número de 1 a 3.")
-            # coluna: mesma ideia da linha
-            coluna = 0
-            valida = False
-            while valida == False:
-                entrada = input("Coluna (1 a 3): ")
-                for n in range(1, 4):
-                    if entrada == str(n):
-                        valida = True
-                        coluna = n - 1
-                if valida == False:
-                    print("Entrada inválida! Digite um número de 1 a 3.")
-            # só aceita se a casa estiver livre
-            if tabuleiro[linha][coluna] != " ":
-                print("Casa já ocupada! Escolha outra casa.")
+            print("     1   2   3")
+            for i in range(3):
+                print(str(i + 1) + "   ", end="")
+                for j in range(3):
+                    print(" " + tabuleiro[i][j] + " ", end="")
+                    if j < 2:
+                        print("|", end="")
+                print("")
+                if i < 2:
+                    print("    ---+---+---")
+            # define de quem é a vez
+            if vez_x == True:
+                simbolo = "X"
+                print("Vez de " + nome_x + " (X)")
             else:
-                jogada_ok = True
-        print("Jogada válida: linha " + str(linha + 1) + ", coluna " + str(coluna + 1))
+                simbolo = "O"
+                print("Vez de " + nome_o + " (O)")
+            # lê a jogada: repete até a linha, a coluna e a casa estarem corretas
+            jogada_ok = False
+            while jogada_ok == False:
+                linha = 0
+                valida = False
+                while valida == False:
+                    entrada = input("Linha (1 a 3): ")
+                    for n in range(1, 4):
+                        if entrada == str(n):
+                            valida = True
+                            linha = n - 1
+                    if valida == False:
+                        print("Entrada inválida! Digite um número de 1 a 3.")
+                coluna = 0
+                valida = False
+                while valida == False:
+                    entrada = input("Coluna (1 a 3): ")
+                    for n in range(1, 4):
+                        if entrada == str(n):
+                            valida = True
+                            coluna = n - 1
+                    if valida == False:
+                        print("Entrada inválida! Digite um número de 1 a 3.")
+                if tabuleiro[linha][coluna] != " ":
+                    print("Casa já ocupada! Escolha outra casa.")
+                else:
+                    jogada_ok = True
+            # marca a jogada na matriz e passa a vez
+            tabuleiro[linha][coluna] = simbolo
+            rodadas = rodadas + 1
+            if rodadas == 9:
+                fim = True
+            vez_x = not vez_x
