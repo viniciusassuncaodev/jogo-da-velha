@@ -101,10 +101,26 @@ while sair == False:
             # marca a jogada na matriz e passa a vez
             tabuleiro[linha][coluna] = simbolo
             rodadas = rodadas + 1
-            if rodadas == 9:
+            tabuleiro[linha][coluna] = simbolo
+            rodadas = rodadas + 1
+            # verifica vitória: o for repete o mesmo teste para cada índice i (0, 1 e 2)
+            venceu = False
+            for i in range(3):
+                # linha i completa?
+                if tabuleiro[i][0] == simbolo and tabuleiro[i][1] == simbolo and tabuleiro[i][2] == simbolo:
+                    venceu = True
+                # coluna i completa?
+                if tabuleiro[0][i] == simbolo and tabuleiro[1][i] == simbolo and tabuleiro[2][i] == simbolo:
+                    venceu = True
+            if venceu == True:
+                print("Fim de jogo! " + simbolo + " venceu!")
                 fim = True
-            vez_x = not vez_x
+            elif rodadas == 9:
+                fim = True
+            else:
+                vez_x = not vez_x
     elif opcao == 4:
+
         print("")
         print("REGRAS:")
         print("- O tabuleiro tem 3 linhas e 3 colunas.")
