@@ -50,7 +50,6 @@ while sair == False:
     elif opcao == 1:
         vez_x = True        # booleano: True = vez do X, False = vez do O
         fim = False         # vira True quando a partida acabar
-        rodadas = 0         # provisório: conta jogadas até o empate ficar pronto
         while fim == False:
             # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
             print("")
@@ -98,8 +97,8 @@ while sair == False:
                     print("Casa já ocupada! Escolha outra casa.")
                 else:
                     jogada_ok = True
-            # marca a jogada na matriz e passa a vez
-                    rodadas = rodadas + 1
+                       # marca a jogada na matriz e passa a vez
+            tabuleiro[linha][coluna] = simbolo
             # verifica vitória: o for repete o mesmo teste para cada índice i (0, 1 e 2)
             venceu = False
             diagonal_principal = 0      # peças do símbolo em [0][0], [1][1], [2][2]
@@ -119,10 +118,16 @@ while sair == False:
             # se alguma diagonal tiver 3 peças, houve vitória
             if diagonal_principal == 3 or diagonal_secundaria == 3:
                 venceu = True
+            # conta as casas vazias: i percorre as linhas e j percorre as colunas
+            vazias = 0
+            for i in range(3):
+                for j in range(3):
+                    if tabuleiro[i][j] == " ":
+                        vazias = vazias + 1
             if venceu == True:
                 print("Fim de jogo! " + simbolo + " venceu!")
                 fim = True
-            elif rodadas == 9:
+            elif vazias == 0:
                 fim = True
             else:
                 vez_x = not vez_x
