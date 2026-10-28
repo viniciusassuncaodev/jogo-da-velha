@@ -99,12 +99,11 @@ while sair == False:
                 else:
                     jogada_ok = True
             # marca a jogada na matriz e passa a vez
-            tabuleiro[linha][coluna] = simbolo
-            rodadas = rodadas + 1
-            tabuleiro[linha][coluna] = simbolo
-            rodadas = rodadas + 1
+                    rodadas = rodadas + 1
             # verifica vitória: o for repete o mesmo teste para cada índice i (0, 1 e 2)
             venceu = False
+            diagonal_principal = 0      # peças do símbolo em [0][0], [1][1], [2][2]
+            diagonal_secundaria = 0     # peças do símbolo em [0][2], [1][1], [2][0]
             for i in range(3):
                 # linha i completa?
                 if tabuleiro[i][0] == simbolo and tabuleiro[i][1] == simbolo and tabuleiro[i][2] == simbolo:
@@ -112,6 +111,14 @@ while sair == False:
                 # coluna i completa?
                 if tabuleiro[0][i] == simbolo and tabuleiro[1][i] == simbolo and tabuleiro[2][i] == simbolo:
                     venceu = True
+                # conta as peças do símbolo nas duas diagonais
+                if tabuleiro[i][i] == simbolo:
+                    diagonal_principal = diagonal_principal + 1
+                if tabuleiro[i][2 - i] == simbolo:
+                    diagonal_secundaria = diagonal_secundaria + 1
+            # se alguma diagonal tiver 3 peças, houve vitória
+            if diagonal_principal == 3 or diagonal_secundaria == 3:
+                venceu = True
             if venceu == True:
                 print("Fim de jogo! " + simbolo + " venceu!")
                 fim = True
