@@ -50,6 +50,7 @@ while sair == False:
     elif opcao == 1:
         vez_x = True        # booleano: True = vez do X, False = vez do O
         fim = False         # vira True quando a partida acabar
+        resultado = ""      # texto com o resultado, mostrado no fim da partida
         while fim == False:
             # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
             print("")
@@ -97,7 +98,7 @@ while sair == False:
                     print("Casa já ocupada! Escolha outra casa.")
                 else:
                     jogada_ok = True
-                       # marca a jogada na matriz e passa a vez
+            # marca a jogada na matriz e passa a vez
             tabuleiro[linha][coluna] = simbolo
             # verifica vitória: o for repete o mesmo teste para cada índice i (0, 1 e 2)
             venceu = False
@@ -124,13 +125,29 @@ while sair == False:
                 for j in range(3):
                     if tabuleiro[i][j] == " ":
                         vazias = vazias + 1
+            # decide o resultado da rodada: vitória, empate ou continua
             if venceu == True:
-                print("Fim de jogo! " + simbolo + " venceu!")
+                resultado = "Fim de jogo! " + simbolo + " venceu!"
                 fim = True
             elif vazias == 0:
+                resultado = "Deu empate!"
                 fim = True
             else:
                 vez_x = not vez_x
+        # partida terminou: mostra o tabuleiro final e o resultado
+        # i percorre as linhas e j percorre as colunas
+        print("")
+        print("     1   2   3")
+        for i in range(3):
+            print(str(i + 1) + "   ", end="")
+            for j in range(3):
+                print(" " + tabuleiro[i][j] + " ", end="")
+                if j < 2:
+                    print("|", end="")
+            print("")
+            if i < 2:
+                print("    ---+---+---")
+        print(resultado)
     elif opcao == 4:
 
         print("")
