@@ -129,9 +129,16 @@ while sair == False:
             if venceu == True:
                 resultado = "Fim de jogo! " + simbolo + " venceu!"
                 fim = True
+                total_partidas = total_partidas + 1
+                if simbolo == "X":
+                    vitorias_x = vitorias_x + 1
+                else:
+                    vitorias_o = vitorias_o + 1
             elif vazias == 0:
                 resultado = "Deu empate!"
                 fim = True
+                total_partidas = total_partidas + 1
+                empates = empates + 1
             else:
                 vez_x = not vez_x
         # partida terminou: mostra o tabuleiro final e o resultado
