@@ -164,3 +164,12 @@ while sair == False:
         print("- Para jogar, informe o número da linha e da coluna (1 a 3).")
         print("- Vence quem completar uma linha, coluna ou diagonal.")
         print("- Se o tabuleiro encher sem vencedor, é empate.")
+
+    elif opcao == 5:
+
+        print("")
+        print("PLACAR DA SESSÃO:")
+        print(nome_x + " (X): " + str(vitorias_x) + " vitórias")
+        print(nome_o + " (O): " + str(vitorias_o) + " vitórias")
+        print("Empates: " + str(empates))
+        print("Total de partidas: " + str(total_partidas))    
