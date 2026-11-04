@@ -51,6 +51,10 @@ while sair == False:
         vez_x = True        # booleano: True = vez do X, False = vez do O
         fim = False         # vira True quando a partida acabar
         resultado = ""      # texto com o resultado, mostrado no fim da partida
+        # limpa o tabuleiro: i percorre as linhas e j percorre as colunas
+        for i in range(3):
+            for j in range(3):
+                tabuleiro[i][j] = " "
         while fim == False:
             # mostra o tabuleiro: i percorre as linhas e j percorre as colunas
             print("")
