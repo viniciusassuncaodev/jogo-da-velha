@@ -173,7 +173,7 @@ while sair == False:
 
         print("")
         print("PLACAR DA SESSÃO:")
-        print(nome_x + " (X): " + str(vitorias_x) + " vitórias")
-        print(nome_o + " (O): " + str(vitorias_o) + " vitórias")
+        print("Vitórias de " + nome_x + " (X): " + str(vitorias_x))
+        print("Vitórias de " + nome_o + " (O): " + str(vitorias_o))
         print("Empates: " + str(empates))
         print("Total de partidas: " + str(total_partidas))    
