@@ -15,6 +15,9 @@ if nome_o == "":
     nome_o = "jogador O"
 
 #contadores de sessão e controle do menu 
+camp_jogados = 0    # campeonatos concluídos
+camp_venc_x = 0     # campeonatos vencidos pelo X
+camp_venc_o = 0     # campeonatos vencidos pelo O
 vitorias_x = 0
 vitorias_o = 0
 empates = 0
