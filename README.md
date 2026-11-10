@@ -9,7 +9,7 @@ Professor: Tiago Martins Ribeiro.
 |---|---|
 | Marcus Vinicius de Assunção Bomfim | Matriz e variáveis, menu principal, exibição do tabuleiro, leitura e validação da jogada |
 | Italo Gabriel Santos Oliveira | Vez dos jogadores, verificação de vitória, detecção de empate |
-| João Victor Souza de Assis | Placar, reinício da matriz, jogar novamente, campeonato, estatísticas e README |
+| João Victor Sousa de Assis | Placar, reinício da matriz, jogar novamente, campeonato, estatísticas e README |
 
 ## Sobre o jogo
 
